@@ -12,6 +12,14 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
   <%@ include file="navbar.html" %>  <!-- Navbar Include -->
+  
+  	<!-- Session validation -->
+	<%
+		String user=(String) session.getAttribute("username");
+		if(user!=null){
+			response.sendRedirect("home.jsp");
+		}
+	%>
 
   <main class="container flex-grow-1 pt-5">
     <div class="container my-5">
@@ -22,15 +30,15 @@
               Student Login
             </div>
             <div class="card-body">
-              <form action="StudentLoginController" method="post" novalidate>
+              <form action="AuthenticateServlet" method="post" >
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email Address</label>
+                  <label for="username" class="form-label">Username</label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
+                    type="text"
+                    id="username"
+                    name="username"
                     class="form-control"
-                    placeholder="Enter Email"
+                    placeholder="Enter Username"
                     required
                   />
                 </div>
@@ -49,6 +57,8 @@
                   Login
                 </button>
               </form>
+              <%= request.getAttribute("msg")!=null ? request.getAttribute("msg"): "" %>
+              
               <div class="mt-3 text-center">
                 <span>Don't have an account?</span>
                 <a href="register.jsp">Register Here</a>

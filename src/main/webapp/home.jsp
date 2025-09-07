@@ -12,12 +12,20 @@
     <!-- Include Navigation Bar -->
     <jsp:include page="navbar.html" />
 
+	<!-- Session validation -->
+	<%
+		String user=(String)session.getAttribute("username");
+		if(user==null){
+			response.sendRedirect("login.jsp");
+		}
+	%>
+	
     <!-- Main Content -->
     <div>
         <h2>Welcome to the Home Page</h2>
         <p>This is the main content of the page.</p>
     </div>
-
+	
     <!-- Include Footer -->
     <jsp:include page="footer.html" />
 

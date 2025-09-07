@@ -22,31 +22,31 @@
 						<div class="card-header bg-primary text-white fw-bold">Student
 							Registration</div>
 						<div class="card-body">
-							<form action="StudentSignupController" method="post" novalidate>
+							<form action="SignupController" method="post">
 								<div class="mb-3">
 									<label for="studentId" class="form-label">Student ID</label> <input
 										type="text" id="studentId" name="studentId"
 										class="form-control" placeholder="Enter Student ID" required />
 								</div>
 								<div class="mb-3">
-									<label for="name" class="form-label">Full Name</label> <input
-										type="text" id="name" name="name" class="form-control"
-										placeholder="Enter Full Name" required />
+									<label for="firstname" class="form-label">First Name</label> <input
+										type="text" id="firstname" name="firstname"
+										class="form-control" placeholder="Enter First Name" required />
+								</div>
+								<div class="mb-3">
+									<label for="lastname" class="form-label">Last Name</label> <input
+										type="text" id="name" name="lastname" class="form-control"
+										placeholder="Enter Last Name" required />
 								</div>
 								<div class="mb-3">
 									<label for="email" class="form-label">Email Address</label> <input
 										type="email" id="email" name="email" class="form-control"
-										placeholder="Enter Email" required />
+										placeholder="Enter your Email" required />
 								</div>
 								<div class="mb-3">
 									<label for="course" class="form-label">Course</label> <input
 										type="text" id="course" name="course" class="form-control"
 										placeholder="Enter Course" required />
-								</div>
-								<div class="mb-3">
-									<label for="year" class="form-label">Academic Year</label> <input
-										type="text" id="year" name="year" class="form-control"
-										placeholder="Enter Academic Year" required />
 								</div>
 								<div class="mb-3">
 									<label for="gender" class="form-label">Gender</label> <select
@@ -64,6 +64,7 @@
 								</div>
 								<button type="submit" class="btn btn-primary w-100 fw-semibold">Register</button>
 							</form>
+							<%= request.getAttribute("msg")!=null ? request.getAttribute("msg"): "" %>
 						</div>
 					</div>
 				</div>
